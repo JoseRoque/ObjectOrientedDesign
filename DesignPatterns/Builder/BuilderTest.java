@@ -3,6 +3,6 @@ public class BuilderTest {
     NutritionFacts.Builder b = new NutritionFacts.Builder(1,4);
     b.withFat(10);
     b.withCalories(200);
-    NutritionFacts nutritionFacts = b.build();
+    System.out.println(b.build());
   }
 }

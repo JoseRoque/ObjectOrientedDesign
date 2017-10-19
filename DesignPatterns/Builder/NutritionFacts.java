@@ -8,14 +8,14 @@ public class NutritionFacts {
 
   public static class Builder {
     // required fields
-    private final int servingSize;
-    private final int servings;
+    private int servingSize;
+    private int servings;
 
     // optional fields
-    private final int calories=0;
-    private final int fat=0;
-    private final int sodium=0;
-    private final int carbohydrates=0;
+    private int calories=0;
+    private int fat=0;
+    private int sodium=0;
+    private int carbohydrates=0;
 
     public Builder(int servingSize, int servings) {
       this.servingSize= servingSize;
@@ -41,17 +41,29 @@ public class NutritionFacts {
       return this;
     }
 
-    public void build() {
+    public NutritionFacts build() {
       return new NutritionFacts(this);
     }
   }
 
+  @Override
+  public String toString() {
+    return String.format(
+      "serving size: " + servingSize +
+      " servings: " + servings +
+      " calories: " + calories +
+      " fat: " + fat +
+      " sodium: " + sodium +
+      " carbohydrates: " + carbohydrates
+    );
+  }
+
   private NutritionFacts(Builder builder){
-    this.servingSize = builder.servingSize;
-    this.servings = builder.servings;
-    this.calories = builder.calories;
-    this.fat = builder.fat;
-    this.sodium = builder.sodium;
-    this.carbohydrates = builder.carbohydrates;
+    servingSize = builder.servingSize;
+    servings = builder.servings;
+    calories = builder.calories;
+    fat = builder.fat;
+    sodium = builder.sodium;
+    carbohydrates = builder.carbohydrates;
   }
 }
